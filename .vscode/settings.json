@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "timer.h": "c",
+        "types.h": "c",
+        "qemulog.h": "c",
+        "pic.h": "c",
+        "port.h": "c"
+    }
+}
