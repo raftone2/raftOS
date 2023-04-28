@@ -26,4 +26,5 @@ run: products/os-image.bin
 	qemu-system-i386 -fda $<
 
 clean:
+	rm -rf products/*.bin products/*.o debug/*.dis
 	rm -rf *.bin *.o *.dis
