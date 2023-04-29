@@ -4,7 +4,7 @@ KERNEL_OFFSET equ 0x1000
 
 mov [BOOT_DISK], dl ; saving boot disk
 
-mov bp, 0x8000 ; stack init in 16 bits
+mov bp, 0x8000 ; stack init in 16bits
 mov sp, bp
 
 mov bx, MSG_REAL_MODE
@@ -26,9 +26,9 @@ jmp $
 load_kernel:
     mov bx, MSG_KERNEL_LOAD
     call print_string
-    
+
     mov bx, KERNEL_OFFSET
-    mov dh, 4 ; sectors count to read
+    mov dh, 15 ; sectors count to read
     mov dl, [BOOT_DISK]
     call disk_load
     ret
