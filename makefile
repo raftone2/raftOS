@@ -5,13 +5,13 @@
 all: run
 
 products/kernel.bin: products/kernel_entry.o products/kernel.o
-	ld -o $@ -Ttext 0x1000 $^ --oformat binary
+	i386-elf-ld -o $@ -Ttext 0x1000 $^ --oformat binary
 
 products/kernel_entry.o: kernel_entry.s
-	nasm $< -f elf64 -o $@
+	nasm $< -f elf -o $@
 
 products/kernel.o: kernel/kernel.c
-	gcc -ffreestanding -c $< -o $@
+	i386-elf-gcc -std=c11 -ffreestanding -c $< -o $@
 
 debug/kernel.dis: products/kernel.bin
 	ndisasm -b 32 $< > $@
