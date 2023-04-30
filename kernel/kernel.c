@@ -1,13 +1,21 @@
 #pragma once
 
 #include "../drivers/display/display.h"
+#include "../drivers/keyboard/keyboard.h"
 #include "interrupts/idt/idt.h"
 #include "interrupts/timer/timer.h"
+
+void init_drivers() {
+    init_keyboard();
+}
 
 void main() {
 
     idt_setup();
     __asm__ __volatile__("sti");
+
+    init_drivers();
+
     init_timer(100);
 
     //clean_screen();
