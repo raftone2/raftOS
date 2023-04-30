@@ -81,6 +81,8 @@ extern isr29_handler
 extern isr30_handler
 extern isr31_handler
 ; IRQs
+extern irq_handler_master
+extern irq_handler_slave
 extern irq0_handler
 extern irq1_handler
 extern irq2_handler
@@ -358,127 +360,159 @@ isr31:
 irq0:
     cli
     pusha
-    call irq0_handler
+    push byte 32
+    call irq_handler_master
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq1:
     cli
     pusha
-    call irq1_handler
+    push byte 33
+    call irq_handler_master
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq2:
     cli
     pusha
-    call irq2_handler
+    push byte 34
+    call irq_handler_master
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq3:
     cli
     pusha
-    call irq3_handler
+    push byte 35
+    call irq_handler_master
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq4:
     cli
     pusha
-    call irq4_handler
+    push byte 36
+    call irq_handler_master
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq5:
     cli
     pusha
-    call irq5_handler
+    push byte 37
+    call irq_handler_master
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq6:
     cli
     pusha
-    call irq6_handler
+    push byte 38
+    call irq_handler_master
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq7:
     cli
     pusha
-    call irq7_handler
+    push byte 39
+    call irq_handler_master
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq8:
     cli
     pusha
-    call irq8_handler
+    push byte 40
+    call irq_handler_slave
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq9:
     cli
     pusha
-    call irq9_handler
+    push byte 41
+    call irq_handler_slave
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq10:
     cli
     pusha
-    call irq10_handler
+    push byte 42
+    call irq_handler_slave
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq11:
     cli
     pusha
-    call irq11_handler
+    push byte 43
+    call irq_handler_slave
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq12:
     cli
     pusha
-    call irq12_handler
+    push byte 44
+    call irq_handler_slave
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq13:
     cli
     pusha
-    call irq13_handler
+    push byte 45
+    call irq_handler_slave
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq14:
     cli
     pusha
-    call irq14_handler
+    push byte 46
+    call irq_handler_slave
+    add esp, 4 ; delete byte
     popa
     sti
     iret
-
+ 
 irq15:
     cli
     pusha
-    call irq15_handler
+    push byte 47
+    call irq_handler_slave
+    add esp, 4 ; delete byte
     popa
     sti
     iret
